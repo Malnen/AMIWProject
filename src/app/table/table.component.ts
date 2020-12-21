@@ -1,5 +1,5 @@
 import { Component, OnInit, Input, ViewChild, ElementRef } from '@angular/core';
-import {ViewEncapsulation } from '@angular/core';
+import { ViewEncapsulation } from '@angular/core';
 
 import {
   trigger,
@@ -8,36 +8,24 @@ import {
   animate,
   transition,
 } from '@angular/animations';
+import { Animations } from '../animations/animations';
 
 @Component({
   selector: 'app-table',
   templateUrl: './table.component.html',
-  styleUrls: ['./table.component.scss'], 
-  animations: [
-    trigger('loaded', [
-      state('true', style({
-        height: '41vw',
-      })),
-      state('false', style({
-        height: '19.5vw',
-      })),
-      transition('true => false', [
-        animate('0.2s')
-      ]),
-      transition('false => true', [
-        animate('0.2s')
-      ]),
-    ]),
-  ],
+  styleUrls: ['./table.component.scss'],
+  animations: [Animations.heightAnimation]
 })
 export class TableComponent implements OnInit {
 
   @Input() table
-  @ViewChild('loading') loading:ElementRef
-  @ViewChild('teams') teams:ElementRef
-  loaded:boolean = false
-  isLoaded:boolean = false
-  
+  @ViewChild('loading') loading: ElementRef
+  @ViewChild('teams') teams: ElementRef
+  loaded: boolean = false
+  isLoaded: boolean = false
+  height: number = 20
+
+
   constructor() { }
 
   ngOnInit(): void {
@@ -49,23 +37,24 @@ export class TableComponent implements OnInit {
       this.loaded = false;
     }
   }
-
-  showLoading(){
-    if(this.loading !=null && this.teams !=null){
-      this.loading.nativeElement.setAttribute("style","display:block")
-      this.teams.nativeElement.setAttribute("style","display:none")
+  showLoading() {
+    if (this.loading != null && this.teams != null) {
+      this.loading.nativeElement.setAttribute("style", "display:block")
+      this.teams.nativeElement.setAttribute("style", "display:none")
       setTimeout(() => {
         this.isLoaded = false;
-      }, 10);  
+        this.height = 19.5
+      }, 10);
     }
   }
-  showContent(){
-    if(this.loading !=null && this.teams !=null){
-      this.loading.nativeElement.setAttribute("style","display:none")
-      this.teams.nativeElement.setAttribute("style","display:block")
+  showContent() {
+    if (this.loading != null && this.teams != null) {
+      this.loading.nativeElement.setAttribute("style", "display:none")
+      this.teams.nativeElement.setAttribute("style", "display:block")
       setTimeout(() => {
         this.isLoaded = true;
-      }, 10);  
+        this.height = this.table.length * 2
+      }, 10);
     }
   }
 }

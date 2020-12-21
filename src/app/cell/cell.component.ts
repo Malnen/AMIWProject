@@ -6,26 +6,13 @@ import {
   animate,
   transition,
 } from '@angular/animations';
+import { Animations } from '../animations/animations';
 @Component({
   selector: 'app-cell',
   templateUrl: './cell.component.html',
   styleUrls: ['./cell.component.scss'],
-  animations: [
-    trigger('hover', [
-      state('true', style({
-        backgroundColor: 'orange'
-      })),
-      state('false', style({
-        backgroundColor: '#292929'
-      })),
-      transition('true => false', [
-        animate('0.2s')
-      ]),
-      transition('false => true', [
-        animate('0.2s')
-      ]),
-    ]),
-  ],
+
+  animations: [Animations.colorChangeAnimation]
 })
 export class CellComponent implements OnInit {
 

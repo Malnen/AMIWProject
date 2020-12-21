@@ -1,6 +1,6 @@
 <span (mouseover)="onHover()" (mouseout)="onLeave()">
 
-    <div id="content" matRipple [@hover]="isHover ? 'true' : 'false'">
+    <div id="content" matRipple [@colorChangeAnimation]="isHover ? 'true' : 'false'">
         <div id="teams">
             <div id="home" #home>
                 <img mat-card-sm-image src="{{homeURL}}" />

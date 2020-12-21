@@ -1,7 +1,7 @@
 <div id="content">
     <app-header></app-header>
     <mat-divider id = "divider"></mat-divider>
-    <div [@loaded]="isLoaded ? 'true' : 'false'">
+    <div [@heightAnimation]="{value:isLoaded ? 'true' : 'false',params:{height:height}}">
         <div id="loading" #loading>
 
         </div>

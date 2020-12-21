@@ -1,5 +1,5 @@
 <span (click) = "onClick()" (mouseover)="onHover()"  (mouseout) = "onLeave()" >
-    <div class = "parent" matRipple [@hover]="isHover ? 'true' : 'false'">
+    <div class = "parent" matRipple [@colorChangeAnimation]="isHover ? 'true' : 'false'">
         <div class = "child" id = "position">
             {{position.position}}
         </div>

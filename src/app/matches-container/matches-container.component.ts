@@ -6,28 +6,16 @@ import {
   style,
   animate,
   transition,
+  useAnimation,
 } from '@angular/animations';
+
+import {Animations} from '../animations/animations'
 
 @Component({
   selector: 'app-matches-container',
   templateUrl: './matches-container.component.html',
   styleUrls: ['./matches-container.component.scss'],
-  animations: [
-    trigger('loaded', [
-      state('true', style({
-        height: '35vw',
-      })),
-      state('false', style({
-        height: '19.5vw',
-      })),
-      transition('true => false', [
-        animate('0.2s')
-      ]),
-      transition('false => true', [
-        animate('0.2s')
-      ]),
-    ]),
-  ],
+  animations: [Animations.heightAnimation]
 })
 export class MatchesContainerComponent implements OnInit {
 

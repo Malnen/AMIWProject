@@ -7,27 +7,14 @@ import {
   animate,
   transition,
 } from '@angular/animations';
+import { Animations } from '../animations/animations';
 
 @Component({
   selector: 'app-matchdetails',
   templateUrl: './matchdetails.component.html',
   styleUrls: ['./matchdetails.component.scss'],
-  animations: [
-    trigger('hover', [
-      state('true', style({
-        backgroundColor: 'orange'
-      })),
-      state('false', style({
-        backgroundColor: '#242424'
-      })),
-      transition('true => false', [
-        animate('0.2s')
-      ]),
-      transition('false => true', [
-        animate('0.2s')
-      ]),
-    ]),
-  ],
+  
+  animations: [Animations.colorChangeAnimation]
 })
 export class MatchdetailsComponent implements OnInit {
 
