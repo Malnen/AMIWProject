@@ -1,0 +1,38 @@
+<span (click) = "onClick()" (mouseover)="onHover()"  (mouseout) = "onLeave()" >
+    <div class = "parent" matRipple [@hover]="isHover ? 'true' : 'false'">
+        <div class = "child" id = "position">
+            {{position.position}}
+        </div>
+        <div class = "child" id = "name">
+            <img mat-card-sm-image src="{{position.team.crestUrl}}" />
+            {{position.team.name}}
+        </div>    
+        <div class = "child" id = "played">
+            {{position.playedGames}}
+        </div>
+        <div class = "child" id = "won">
+            {{position.won}}
+        </div>
+        <div class = "child" id = "draw">
+            {{position.draw}}
+        </div>
+        <div class = "child" id = "lost">
+            {{position.lost}}
+        </div>
+        <div class = "child" id = "goalsFor">
+            {{position.goalsFor}}
+        </div>
+        <div class = "child" id = "goalsAgainst">
+            {{position.goalsAgainst}}
+        </div>
+        <div class = "child" id = "goalDifference">
+            {{position.goalDifference}}
+        </div>
+        <div class = "child" id = "points">
+            {{position.points}}
+        </div>
+        <div class = "child" id = "lastGames">
+            {{position.form | lastGames}}
+        </div>
+    </div>
+</span>

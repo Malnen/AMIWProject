@@ -1,0 +1,34 @@
+<span (mouseover)="onHover()" (mouseout)="onLeave()">
+
+    <div id="content" matRipple [@hover]="isHover ? 'true' : 'false'">
+        <div id="teams">
+            <div id="home" #home>
+                <img mat-card-sm-image src="{{homeURL}}" />
+                {{match.homeTeam.name}}
+            </div>
+            <div id="away" #away>
+                <img mat-card-sm-image src="{{awayURL}}" />
+                {{match.awayTeam.name}}
+            </div>
+        </div>
+        <div id="score">
+            <div id="home">
+                {{match.score.fullTime.homeTeam}}
+            </div>
+            <div id="away">
+                {{match.score.fullTime.awayTeam}}
+            </div>
+        </div>
+        <div id="date">
+            <div>
+                {{match | matchDate: 'date'}}
+            </div>
+            <div>
+                {{match | matchDate: 'time'}}
+            </div>
+            <div id = "extra">
+                {{match | matchDate : 'extra'}}
+            </div>
+        </div>
+    </div>
+</span>

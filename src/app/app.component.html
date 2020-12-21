@@ -1,0 +1,21 @@
+<div id>
+  <div id="select">
+    <div>
+      <mat-form-field> 
+        <mat-label>Liga</mat-label>
+        <mat-select (selectionChange)="onChange(select._value.code)" #select [formControl]="selectFormControl"
+          panelClass="test">
+          <mat-option  panelClass="test" *ngFor="let competition of competitions" [value]="competition">
+            {{competition.name}}
+          </mat-option>
+        </mat-select>
+      </mat-form-field>
+    </div>
+    <div id = "matches">
+      <app-matches-container [matchDays] = "matchDays" [currentMatchDay] = "currentMatchDay" #container></app-matches-container>
+    </div>
+  </div>
+  <div id = "table">
+    <app-table [table]="table" #tableContainer></app-table>
+  </div>
+</div>

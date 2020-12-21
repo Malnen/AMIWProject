@@ -1,0 +1,29 @@
+div{
+    text-align: center;
+    font-size: 1vw;
+    height: 1.5vw;
+    line-height: 1.5vw;
+}
+.child{
+    float:left;
+    width: 2.5vw;
+    border:none;
+}
+
+
+#name{
+    width:17.5vw;
+
+}
+#lastGames{
+    width:12vw;
+    font-size: 0.8vw;
+}
+.parent{
+    overflow: hidden;
+}
+img{
+    width: 1.5vw;
+    height: 1.5vw;
+    float: left;;
+}

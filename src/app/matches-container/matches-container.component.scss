@@ -1,0 +1,44 @@
+@import '~@angular/material/theming';
+@import '/variables.scss';
+
+
+#content{
+    width:41vw;
+    max-height: 35vw;
+    margin-top: 1vw;
+    margin-left:0.25vw;
+    @include mat-elevation(10);
+    background-color: $darkerBackground;
+    overflow: auto;
+    border-radius: 1em;
+    padding:0.1vw;
+    #loading{
+        position: relative;
+        z-index: 1;
+        width: 16vw;
+        height: 16vw;
+        margin-left: 12vw;
+        border: 3vw solid $evenDarkerBackground;
+        border-radius: 50%;
+        border-left: 3vw solid $selectedBackground;
+        border-right: 3vw solid $selectedBackground;
+        width: 12vw;
+        display: inline-block;
+        height: 12vw;
+        animation: spin 1s linear infinite;
+        }
+        
+        @keyframes spin {
+          0% { transform: rotate(0deg); }
+          100% { transform: rotate(360deg); }
+        }
+}    
+::-webkit-scrollbar{
+    background-color: rgba($color: $darkerBackground  , $alpha: 0.5);
+    border-radius: 2vw;
+    width: 0.5vw;
+}
+::-webkit-scrollbar-thumb{
+    background-color: $evenDarkerBackground;
+    border-radius: 2vw;
+}

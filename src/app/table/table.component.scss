@@ -1,0 +1,34 @@
+@import '~@angular/material/theming';
+@import '/variables.scss';
+
+#content{  
+    position: absolute;
+    left: 70%;
+    transform: translate(-50%);
+    margin: 1em;
+    width:50vw;
+    @include mat-elevation(10);
+    border-radius: 1em;
+    background-color: $darkerBackground;
+    #loading{
+        position: relative;
+        z-index: 1;
+        width: 16vw;
+        height: 16vw;
+        margin-left: 16vw;
+        border: 3vw solid $evenDarkerBackground;
+        border-radius: 50%;
+        border-left: 3vw solid $selectedBackground;
+        border-right: 3vw solid $selectedBackground;
+        width: 12vw;
+        display: inline-block;
+        height: 12vw;
+        animation: spin 1s linear infinite;
+        }
+}
+
+::ng-deep{
+    .mat-divider{
+        border-top-color:$selectedBackground;
+    }
+}

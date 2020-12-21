@@ -1,0 +1,54 @@
+@import '~@angular/material/theming';
+@import '/variables.scss';
+
+#select{
+    margin:1vw;
+
+  
+}
+::ng-deep{
+    .mat-option.mat-selected:not(.mat-option-multiple) {
+        background:$text;
+      }
+
+      .mat-form-field-underline{ 
+          background-color:$text !important;
+      }
+      .mat-form-field-label{
+          color:$text !important;
+      }
+      .mat-option.mat-option.mat-selected:not(.mat-option-multiple){
+        color: $selectedText
+    }
+    .mat-option{
+        color: $text
+    }
+    .mat-select-panel::-webkit-scrollbar{
+        background-color: rgba($color: $selectedBackground  , $alpha: 0.5);
+        width: 0.5vw;
+        border-radius: 2vw;
+    }
+
+    .mat-select-panel::-webkit-scrollbar-thumb{
+        background-color: $selectedBackground;
+        border-radius: 2vw;
+    }
+    .mat-form-field{   
+        background-color: $darkerBackground;
+        @include mat-elevation(10);
+        border-radius: 1em;
+        padding:0.5em;
+        width: 40vw;
+        font-size: 1.5vw;
+    }
+    .mat-select-panel{
+    background-color: rgba($color: $selectedBackground, $alpha: 0.5);
+    backdrop-filter: blur(2px);
+    }   
+    .mat-select-arrow,.mat-select-value-text{   
+        color:$selectedText;
+    }
+}
+#select,#table{
+    float:left
+}
