@@ -16,7 +16,7 @@ import {
   animations: [
     trigger('loaded', [
       state('true', style({
-        height: '*',
+        height: '40vw',
       })),
       state('false', style({
         height: '19.5vw',
