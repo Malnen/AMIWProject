@@ -7,10 +7,21 @@
   
 }
 ::ng-deep{
+    .mat-form-field.mat-focused .mat-form-field-ripple {
+        background-color:$selectedText !important;
+    }
+    
+    .mat-form-field.mat-focused.mat-primary .mat-select-arrow {
+        color:$selectedText !important;
+    }
     .mat-option.mat-selected:not(.mat-option-multiple) {
         background:$text;
       }
-
+      .mat-focused {        
+      .mat-form-field-underline{ 
+        background-color:$evenDarkerBackground!important;
+    }
+      }
       .mat-form-field-underline{ 
           background-color:$text !important;
       }
@@ -44,8 +55,11 @@
     .mat-select-panel{
     background-color: rgba($color: $selectedBackground, $alpha: 0.5);
     backdrop-filter: blur(2px);
+    }
+    .mat-select-arrow{
+        color:$text;
     }   
-    .mat-select-arrow,.mat-select-value-text{   
+    .mat-select-value-text{   
         color:$selectedText;
     }
 }

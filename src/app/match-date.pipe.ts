@@ -11,6 +11,7 @@ export class MatchDatePipe implements PipeTransform {
     value = value.replace("Z", " ")
     
     var date: moment.Moment = moment(value,"YYYY-MM-DD HH:mm:ss")
+    date.add(1,'hours') // przesunięcie czasu o 1 godzinę do przodu
 
     if (format == 'time') {
       if (date.format("HH:mm") == "00:00") {

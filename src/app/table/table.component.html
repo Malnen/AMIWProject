@@ -1,12 +1,14 @@
 <div id="content">
     <app-header></app-header>
-    <mat-divider></mat-divider>
-    <div id="loading" #loading>
+    <mat-divider id = "divider"></mat-divider>
+    <div [@loaded]="isLoaded ? 'true' : 'false'">
+        <div id="loading" #loading>
 
-    </div>
-    <div id ="teams" #teams>
-        <app-cell *ngFor="let position of table let l = last" [position]="position">
-            {{ l === true ? ready() : null}}
-        </app-cell>
+        </div>
+        <div id="teams" #teams>
+            <app-cell *ngFor="let position of table let l = last" [position]="position">
+                {{ l === true ? ready() : null}}
+            </app-cell>
+        </div>
     </div>
 </div>

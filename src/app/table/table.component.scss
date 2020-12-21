@@ -10,9 +10,18 @@
     @include mat-elevation(10);
     border-radius: 1em;
     background-color: $darkerBackground;
+    overflow: auto;
+    height:auto;
+
+    #divider{
+        margin-bottom: 0.5vw;
+    }
+
     #loading{
         position: relative;
         z-index: 1;
+        margin-top: 0.5vw;
+        margin-bottom: 0.5vw;
         width: 16vw;
         height: 16vw;
         margin-left: 16vw;
@@ -27,6 +36,9 @@
         }
 }
 
+::-webkit-scrollbar{
+    width: 0;
+}
 ::ng-deep{
     .mat-divider{
         border-top-color:$selectedBackground;
