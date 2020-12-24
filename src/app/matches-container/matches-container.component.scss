@@ -13,27 +13,16 @@
     border-radius: 1em;
     padding:0.1vw;
     #loading{
-        position: relative;
-        z-index: 1;
-        margin-top: 0.5vw;
-        margin-bottom: 0.5vw;
-        width: 16vw;
-        height: 16vw;
-        margin-left: 12vw;
-        border: 3vw solid $evenDarkerBackground;
-        border-radius: 50%;
-        border-left: 3vw solid $selectedBackground;
-        border-right: 3vw solid $selectedBackground;
-        width: 12vw;
-        display: inline-block;
-        height: 12vw;
-        animation: spin 1s linear infinite;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        margin-top:4vw;
+        ::ng-deep{
+            .mat-progress-spinner circle, .mat-spinner circle {
+                stroke: $selectedBackground;
+            }
         }
-        
-        @keyframes spin {
-          0% { transform: rotate(0deg); }
-          100% { transform: rotate(360deg); }
-        }
+    }     
 }    
 ::-webkit-scrollbar{
     background-color: rgba($color: $darkerBackground  , $alpha: 0.5);

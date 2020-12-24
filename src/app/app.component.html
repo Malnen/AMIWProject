@@ -1,4 +1,4 @@
-<div id>
+<div>
   <div id="select">
     <div>
       <mat-form-field> 
@@ -16,6 +16,11 @@
     </div>
   </div>
   <div id = "table">
-    <app-table [table]="table" #tableContainer></app-table>
+    <app-table [table]="table" #tableContainer (parentLoading) = "toggleLoading($event)"></app-table>
   </div>
+
+  <div id = "loading" #loading>
+    <mat-spinner>   </mat-spinner>
+  </div>
+
 </div>

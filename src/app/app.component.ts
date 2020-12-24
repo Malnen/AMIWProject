@@ -1,4 +1,4 @@
-import { Component, Input, ViewChild } from '@angular/core';
+import { Component, ElementRef, Input, ViewChild } from '@angular/core';
 import { ApiService } from './api.service';
 import { FormControl } from '@angular/forms';
 
@@ -11,12 +11,13 @@ export class AppComponent {
 
   @ViewChild('container') matchContainer;
   @ViewChild('tableContainer') tableContainer
+  @ViewChild('loading') loading: ElementRef
   selectFormControl = new FormControl();
   title = 'projekt';
   data
   standings = []
   table = []
-  competitionIds = [
+  static competitionIds = [
     2002, 2003, 2013, 2014, 2015, 2017, 2019, 2021
   ]
   competitions = []
@@ -34,8 +35,8 @@ export class AppComponent {
     this.onChange(laliga)
 
     this.api.getCompetitions().subscribe((data: any) => {
-      for (let i = 0; i < data.count; i++) {
-        if (this.competitionIds.includes(data.competitions[i].id)) {
+      for (let i = 1; i < data.count; i++) {
+        if (AppComponent.competitionIds.includes(data.competitions[i].id)) {
           this.competitions.push(data.competitions[i])
 
           if (data.competitions[i].id == laliga) {
@@ -56,7 +57,7 @@ export class AppComponent {
     if (this.matchContainer != null) {
       this.matchContainer.showLoading()
     }
-    if(this.tableContainer != null){
+    if (this.tableContainer != null) {
       this.tableContainer.showLoading()
     }
     this.api.getStandings(id).subscribe((data: any) => {
@@ -103,7 +104,18 @@ export class AppComponent {
         }, 100);                                                               // opoźnienie automatycznego scrollowania, 
       }                                                                        // dzięki temu zostanie ono poprawnie wykonane (w teori :] )
     })                                                                         // wykonanie bez opóźnienia powoduje, że czasami
-  }                                                                            // content jest scrollowany w złe miejscepm install --save npm-git-install
+  }                                                                            // content jest scrollowany w złe miejsce 
 
+  toggleLoading(e) {
+    if (e.event == "show") {
+      this.loading.nativeElement.setAttribute("style", "display:block;display: flex;align-items: center;justify-content: center;")
+    } else if (e.event == "close") {
+      this.loading.nativeElement.setAttribute("style", "display:none")
+    }
+  }
 
+  public static inCompetitions(id: number) {
+    console.log(AppComponent.competitionIds.includes(id))
+    return AppComponent.competitionIds.includes(id)
+  }
 }

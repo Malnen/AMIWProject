@@ -3,10 +3,10 @@
     <mat-divider id = "divider"></mat-divider>
     <div [@heightAnimation]="{value:isLoaded ? 'true' : 'false',params:{height:height}}">
         <div id="loading" #loading>
-
+            <mat-spinner>   </mat-spinner>
         </div>
         <div id="teams" #teams>
-            <app-cell *ngFor="let position of table let l = last" [position]="position">
+            <app-cell *ngFor="let position of table let l = last" [position]="position" (parentLoading) = "toggleParentLoading($event)"> 
                 {{ l === true ? ready() : null}}
             </app-cell>
         </div>

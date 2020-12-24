@@ -17,9 +17,15 @@ import { MatSelectModule } from '@angular/material/select';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import {MatRippleModule} from '@angular/material/core';
 import { MatchesContainerComponent } from './matches-container/matches-container.component';
-import { MatchdetailsComponent } from './matchdetails/matchdetails.component';
+import { MatchtileComponent } from './matchtile/matchtile.component';
 import { MatchDayComponent } from './match-day/match-day.component';
 import { MatchDatePipe } from './match-date.pipe';
+import { TeamdetailswindowComponent } from './teamdetailswindow/teamdetailswindow.component';
+import {MatDialogModule} from '@angular/material/dialog';
+import {MatProgressSpinnerModule} from '@angular/material/progress-spinner';
+import { PlayerTileComponent } from './player-tile/player-tile.component';
+import { PlayerPositionPipe } from './player-position.pipe';
+import { CoachTileComponent } from './coach-tile/coach-tile.component';
 
 @NgModule({
   declarations: [
@@ -29,9 +35,13 @@ import { MatchDatePipe } from './match-date.pipe';
     HeaderComponent,
     LastGamesPipe,
     MatchesContainerComponent,
-    MatchdetailsComponent,
+    MatchtileComponent,
     MatchDayComponent,
     MatchDatePipe,
+    TeamdetailswindowComponent,
+    PlayerTileComponent,
+    PlayerPositionPipe,
+    CoachTileComponent,
   ],
   
   imports: [
@@ -47,7 +57,10 @@ import { MatchDatePipe } from './match-date.pipe';
     ReactiveFormsModule,
     MatSelectModule,
     MatFormFieldModule,
-    MatRippleModule
+    MatRippleModule,
+    MatDialogModule,
+    MatProgressSpinnerModule,
+    
   ],
   providers: [],
   bootstrap: [AppComponent]

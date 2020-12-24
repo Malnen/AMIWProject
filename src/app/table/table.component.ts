@@ -1,4 +1,4 @@
-import { Component, OnInit, Input, ViewChild, ElementRef } from '@angular/core';
+import { Component, OnInit, Input, ViewChild, ElementRef, Output, EventEmitter } from '@angular/core';
 import { ViewEncapsulation } from '@angular/core';
 
 import {
@@ -21,6 +21,8 @@ export class TableComponent implements OnInit {
   @Input() table
   @ViewChild('loading') loading: ElementRef
   @ViewChild('teams') teams: ElementRef
+
+  @Output() parentLoading: EventEmitter<any> = new EventEmitter();
   loaded: boolean = false
   isLoaded: boolean = false
   height: number = 20
@@ -37,9 +39,12 @@ export class TableComponent implements OnInit {
       this.loaded = false;
     }
   }
+  toggleParentLoading(e){
+    this.parentLoading.emit({event:e});
+  }
   showLoading() {
     if (this.loading != null && this.teams != null) {
-      this.loading.nativeElement.setAttribute("style", "display:block")
+      this.loading.nativeElement.setAttribute("style", "display: flex;align-items: center;justify-content: center;")
       this.teams.nativeElement.setAttribute("style", "display:none")
       setTimeout(() => {
         this.isLoaded = false;

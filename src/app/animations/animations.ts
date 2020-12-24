@@ -11,7 +11,7 @@ import {
       }),{ params: { height: '40'}}),
       state('false', style({
         height: '{{height}}vw',
-      }),{ params: { height: '19.5'}}),
+      }),{ params: { height: '15'}}),
       transition('true => false', [
         animate('0.2s')
       ]),

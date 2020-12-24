@@ -14,9 +14,9 @@ export class MatchDatePipe implements PipeTransform {
     date.add(1,'hours') // przesunięcie czasu o 1 godzinę do przodu
 
     if (format == 'time') {
-      if (date.format("HH:mm") == "00:00") {
+      if (date.format("HH:mm") == "01:00") {
         return "-:-"  //w ligach które są dostępne na mojej stronie mecze nie są rozgrywane 
-        //o godzinie 00:00,oznacza to że godzina nie została jeszcze ustalona
+        //o godzinie 01:00,oznacza to że godzina nie została jeszcze ustalona
       }
       return date.format("HH:mm")
     } else if (format == 'date') {
@@ -37,6 +37,9 @@ export class MatchDatePipe implements PipeTransform {
       }
       if (match.status == "POSTPONED") {
         return "Przełożony"
+      }
+      if(moment().diff(date,'m') <= 90 && moment().diff(date,'m') >= 0){
+        return "Trwa " + moment().diff(date,'m') + "\""
       }
       return null
     }

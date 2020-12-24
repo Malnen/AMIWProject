@@ -16,24 +16,18 @@
     #divider{
         margin-bottom: 0.5vw;
     }
-
     #loading{
-        position: relative;
-        z-index: 1;
-        margin-top: 0.5vw;
-        margin-bottom: 0.5vw;
-        width: 16vw;
-        height: 16vw;
-        margin-left: 16vw;
-        border: 3vw solid $evenDarkerBackground;
-        border-radius: 50%;
-        border-left: 3vw solid $selectedBackground;
-        border-right: 3vw solid $selectedBackground;
-        width: 12vw;
-        display: inline-block;
-        height: 12vw;
-        animation: spin 1s linear infinite;
+        margin-top:10vw;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        ::ng-deep{
+            .mat-progress-spinner circle, .mat-spinner circle {
+                stroke: $selectedBackground;
+            }
+            
         }
+    }
 }
 
 ::-webkit-scrollbar{

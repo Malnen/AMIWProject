@@ -1,0 +1,48 @@
+<div id="content">
+    <div id="closeButton">
+        <img src="assets/icons/close.png" (click)="closeDialog() ">
+    </div>
+    <div id="top">
+        <img mat-card-sm-image src="{{data.team.crestUrl}} " />
+        <div id="info">
+            <div>
+                Nazwa: <span>{{data.team.name}}</span>
+            </div>
+            <div>
+                Rok założenia: <span>{{data.team.founded}}</span>
+            </div>
+            <div>
+                Stadion: <span>{{data.team.venue}}</span>
+            </div>
+        </div>
+    </div>
+    <div id="bottom">
+        <div id="matches">
+            <div id="header">
+                Mecze
+            </div>
+            <div id = "content">
+                <div id="loading" #matchesLoading>
+                    <mat-spinner> </mat-spinner>
+                </div>
+                <div #matchesContainer>
+                    <app-matchtile *ngFor="let match of matches" [match]="match" id="match"></app-matchtile>
+                </div>
+            </div>
+        </div>
+        <div id="squad">
+            <div id="header">
+                Skład
+            </div>
+            <div id="content">
+                <div id="loading" #squadLoading>
+                    <mat-spinner> </mat-spinner>
+                </div>
+                <div id="squadContainer" #squadContainer>
+                    <app-coach-tile id="coach" [coach]="coach"></app-coach-tile>
+                    <app-player-tile id="player" *ngFor="let player of squad" [player]="player"></app-player-tile>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

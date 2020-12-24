@@ -21,6 +21,7 @@
     "@angular/platform-browser": "~10.2.0",
     "@angular/platform-browser-dynamic": "~10.2.0",
     "@angular/router": "~10.2.0",
+    "@ng-bootstrap/ng-bootstrap": "^8.0.0",
     "angular-animate": "^1.8.2",
     "git": "^0.1.5",
     "moment": "^2.29.1",

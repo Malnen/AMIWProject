@@ -43,7 +43,7 @@ export class MatchesContainerComponent implements OnInit {
 
   showLoading(){
     if(this.loading !=null && this.matches !=null){
-      this.loading.nativeElement.setAttribute("style","display:block")
+      this.loading.nativeElement.setAttribute("style", "display: flex;align-items: center;justify-content: center;")
       this.matches.nativeElement.setAttribute("style","display:none")
       setTimeout(() => {
         this.isLoaded = false;

@@ -10,13 +10,13 @@ import {
 import { Animations } from '../animations/animations';
 
 @Component({
-  selector: 'app-matchdetails',
-  templateUrl: './matchdetails.component.html',
-  styleUrls: ['./matchdetails.component.scss'],
+  selector: 'app-matchtile',
+  templateUrl: './matchtile.component.html',
+  styleUrls: ['./matchtile.component.scss'],
   
   animations: [Animations.colorChangeAnimation]
 })
-export class MatchdetailsComponent implements OnInit {
+export class MatchtileComponent implements OnInit {
 
   @Input() match
 
@@ -25,6 +25,7 @@ export class MatchdetailsComponent implements OnInit {
   isHover = false;
   homeURL
   awayURL
+  color:string = "#242424"
 
   homeTeamScore
   awayTeamScore
@@ -53,9 +54,11 @@ export class MatchdetailsComponent implements OnInit {
   }
   onHover() {
     this.isHover = true;
+    this.color = "orange"
   }
 
   onLeave() {
     this.isHover = false;
+    this.color = "#242424"
   }
 }
