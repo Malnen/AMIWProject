@@ -8,10 +8,11 @@ import { Component, Input, OnInit } from '@angular/core';
 export class CoachTileComponent implements OnInit {
 
   @Input() coach
-  constructor() { }
+  constructor() {
+
+   }
 
   ngOnInit(): void {
-    console.log(this.coach)
   }
 
 }

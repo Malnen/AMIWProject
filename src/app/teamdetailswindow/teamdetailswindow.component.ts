@@ -24,13 +24,28 @@ export class TeamdetailswindowComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    for (let player of this.data.team.squad) {
-      if (player.role == "COACH") {
-        this.coach = player
-      } else {
-        this.squad.push(player)
+    var countries;
+    
+    this.api.getCountries().subscribe((data:any)=>{
+      countries = data
+      console.log(countries)
+      for (let player of this.data.team.squad) {
+
+        for(let c of countries.countries){
+          if(Object.values(c) == player.nationality){
+            player.countryCode = {code:Object.keys(c)[0]}
+          }
+        }
+
+        if (player.role == "COACH") {
+          this.coach = player
+        } else {
+          this.squad.push(player)
+        }
       }
-    }
+    })
+
+    
     this.api.getMatchesforTeam(this.data.team.id).subscribe((data: any) => {
       for (let i = 0; i < data.count; i++) {
         if (AppComponent.competitionIds.includes(data.matches[i].competition.id)) {

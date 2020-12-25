@@ -1,6 +1,6 @@
-<div id = "content">
-    <div id = "name">
-        {{coach.name}}
+<div id = "content" *ngIf="coach!=null">
+    <div id = "name" >
+        {{coach.name}} <img mat-card-sm-image src="https://flagcdn.com/16x12/{{coach.countryCode.code}}.png" />
     </div>
     <div id = "date">
         Data urodzenia: <span>{{coach.dateOfBirth.substring(0,10)}}</span>

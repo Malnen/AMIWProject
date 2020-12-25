@@ -84,4 +84,10 @@ export class ApiService {
         return this.getData(url);
       }));
   }
+
+  getCountries(){
+    var request = this.httpClient.get("assets/countries.json")
+    return request
+  }
+
 }
