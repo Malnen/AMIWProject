@@ -1,4 +1,4 @@
 <div>
     <div id = "header">Kolejka {{matchDay.count}}</div>
-    <app-matchtile *ngFor = " let match of matchDay.matches" [match] = "match"></app-matchtile>
+    <app-matchtile *ngFor = " let match of matchDay.matches" [match] = "match" (parentLoading) = "toggleParentLoading($event)"></app-matchtile>
 </div>

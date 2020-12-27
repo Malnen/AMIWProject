@@ -1,0 +1,149 @@
+@import '~@angular/material/theming';
+@import '/variables.scss';
+
+
+
+
+::ng-deep{
+    .mat-dialog-container {
+        height: 40vw;
+        width: 80vw;
+        background-color: rgba($color: $darkerBackground, $alpha: 0.5);
+        backdrop-filter: blur(2px);
+        padding: 0.5vw;
+        border-radius: 1vw;
+        color:$text;
+}   
+#content{
+    text-align: right;
+    margin:0.5vw;
+    #closeButton{
+        img{
+            width: 2vw;
+            height: 2vw;
+        }
+    }
+    #top{
+        margin-left: -0.25vw;
+        margin-top: -3vw;
+        width: 78vw;
+        height: 5vw;
+        #header{
+            @include mat-elevation(4);
+            background-color: $darkerBackground;
+            text-align: center;
+            color:$selectedText;
+            width: 70vw;
+            margin-left: 4vw;
+            font-size: 2vw;
+            border-radius: 1vw;
+            line-height: 3vw;
+        } 
+        #content{
+            @include mat-elevation(4);
+            background-color: $darkerBackground;
+            border-radius: 1vw;
+            float:left;
+            text-align: center;
+
+            #middle{
+                width: 17vw;
+                float:left;
+                font-size: 5vw;
+                height: 5vw;
+                line-height: 10vw;
+
+            }
+            #home,#away{
+                width: 30vw;
+                float:left;
+                margin-top: 1vw;
+                img{
+                    width: 5vw;
+                    height: 5vw;
+                    border:0.3vw solid $selectedBackground;
+                    border-radius: 1vw;
+                }
+                #name{
+                    clear: both;
+                    font-size: 1.5vw;
+                }
+            }
+        }
+    }
+
+    #bottom{ 
+        @include mat-elevation(4);
+        background-color: $darkerBackground;
+        float: left;
+        width: 75.5vw;
+        padding: 1vw;
+        border-radius: 1vw;
+        text-align: left;
+        height: 24vw;
+        #left{
+            float: left;
+            #header{
+                text-align: center;
+                color: $selectedText;
+                font-size: 2vw;
+                @include mat-elevation(4);
+                background-color: $evenDarkerBackground;
+                border-radius: 1vw;
+                margin-bottom: 1vw;
+            }
+            #content{
+                text-align: left;
+                width: 23vw;
+                margin-left: 0.25vw;
+                color: $text;
+                font-size: 1.25vw;
+                line-height: 3vw;
+                @include mat-elevation(4);
+                background-color: $evenDarkerBackground;
+                border-radius: 1vw;
+                padding: 1vw;
+                span{
+                    color:$selectedText;
+                    font-size: 1.75vw;
+                }
+                #venue{  
+                    font-size: 1.1vw
+                }
+            }
+        }
+        #right{
+            float: left;
+            width: 38vw;
+            margin-left: 11vw;
+            #header{
+                text-align: center;
+                color: $selectedText;
+                font-size: 2vw;
+                @include mat-elevation(4);
+                background-color: $evenDarkerBackground;
+                border-radius: 1vw;
+                margin-bottom: 1vw;
+            }
+            #content{
+                overflow: auto;
+                @include mat-elevation(4);
+                background-color: $evenDarkerBackground;
+                border-radius: 1vw;
+                max-height: 21vw;
+                ::ng-deep{
+                    #content{
+                        background-color: $evenMoreDarkerBackground;
+                    }
+                }
+            }
+        }
+    }
+    
+}
+    
+    ::-webkit-scrollbar{
+        display: none;
+        scrollbar-width: none;
+    }
+}

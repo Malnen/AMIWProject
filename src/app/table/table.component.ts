@@ -40,7 +40,7 @@ export class TableComponent implements OnInit {
     }
   }
   toggleParentLoading(e){
-    this.parentLoading.emit({event:e});
+    this.parentLoading.emit(e);
   }
   showLoading() {
     if (this.loading != null && this.teams != null) {

@@ -80,7 +80,8 @@
     @include mat-elevation(10);
     border-radius: 1em;
     background-color: rgba($color: $darkerBackground, $alpha: 0.5);
-    backdrop-filter: blur(2px);       
+    backdrop-filter: blur(2px);     
+    z-index: 100000; 
      ::ng-deep{
         .mat-progress-spinner circle, .mat-spinner circle {
             stroke: $selectedBackground;

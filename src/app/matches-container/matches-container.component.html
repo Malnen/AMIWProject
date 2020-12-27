@@ -3,8 +3,8 @@
         <mat-spinner>   </mat-spinner>
     </div>
     <div id = "matches" #matches >
-        <app-match-day *ngFor="let matchDay of matchDays let l = last" [matchDay]="matchDay" #ele>
-            {{ l === true ? ready(ele) : null}}
+        <app-match-day *ngFor="let matchDay of matchDays let l = last" [matchDay]="matchDay" #ele (parentLoading) = "toggleParentLoading($event)">
+            {{ l === true ? ready() : null}}
         </app-match-day>
     </div>
 </div> 

@@ -1,13 +1,13 @@
-<span (mouseover)="onHover()" (mouseout)="onLeave()">
+<span (click) = "openDialog()" (mouseover)="onHover()" (mouseout)="onLeave()">
 
     <div id="content" matRipple [@colorChangeAnimation]="{value:isHover ? 'true' : 'false',params:{color:color}}">
         <div id="teams">
             <div id="home" #home>
-                <img mat-card-sm-image src="{{homeURL}}" />
+                <img mat-card-sm-image src="{{match.homeTeam.URL}}" />
                 {{match.homeTeam.name}}
             </div>
             <div id="away" #away>
-                <img mat-card-sm-image src="{{awayURL}}" />
+                <img mat-card-sm-image src="{{match.awayTeam.URL}}" />
                 {{match.awayTeam.name}}
             </div>
         </div>
@@ -26,7 +26,7 @@
             <div>
                 {{match | matchDate: 'time'}}
             </div>
-            <div id = "extra">
+            <div id = "extra" *ngIf="match.status != 'SCHEDULED'">
                 {{match | matchDate : 'extra'}}
             </div>
         </div>

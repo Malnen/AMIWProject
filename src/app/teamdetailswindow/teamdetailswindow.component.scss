@@ -13,136 +13,139 @@
         padding: 0.5vw;
         border-radius: 1vw;
         color:$text;
-        #content{
-            text-align: right;
-            margin:0.5vw;
-            #closeButton{
-                img{
-                    width: 2vw;
-                    height: 2vw;
+    }
+}
+#content{
+    text-align: right;
+    margin:0.5vw;
+    #closeButton{
+        img{
+            width: 2vw;
+            height: 2vw;
+        }
+    }
+    #top{
+        text-align: left;
+        margin-top: -2vw;
+        margin-left: 0.5vw;
+        img{
+            border:0.3vw solid $selectedBackground;
+            border-radius: 1vw;
+            width: 10vw;
+            height: 10vw;
+            float:left;
+            text-align: center;
+        }
+        #info{
+            margin-left: 1vw;
+            height: 10vw;
+            float:left;
+            font-size: 1vw;
+            div{
+                clear: both;
+                span{
+                    font-size: 1.5vw;
+                    color:$selectedText
                 }
             }
-            #top{
-                text-align: left;
-                margin-top: -2vw;
-                margin-left: 0.5vw;
-                img{
-                    border:0.3vw solid $selectedBackground;
-                    border-radius: 1vw;
-                    width: 10vw;
-                    height: 10vw;
-                    float:left;
-                }
-                #info{
-                    margin-left: 1vw;
-                    height: 10vw;
-                    float:left;
-                    font-size: 1vw;
-                    div{
-                        clear: both;
-                        span{
-                            font-size: 1.5vw;
-                            color:$selectedText
-                        }
-                    }
 
-                }
-            }
-            #bottom{
-                float:left;
-                width: 78vw;
-                text-align: left;
-                #matches{
+        }
+    }
+    #bottom{
+        float:left;
+        width: 78vw;
+        text-align: left;
+        background-color: rgba($color: red, $alpha: 0);
+        #matches{
+            
+            margin: 1vw;
+            width: 42vw;
+            height: 24vw;
+            float:left;
+            padding: 1vw;
+            margin-top:-1vw;
+            #loading{
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                ::ng-deep{
+                    .mat-progress-spinner circle, .mat-spinner circle {
+                        stroke: $selectedBackground;
+                    }
                     
-                    margin: 1vw;
-                    width: 42vw;
-                    height: 24vw;
-                    float:left;
-                    padding: 1vw;
-                    margin-top:-1vw;
-                    #loading{
-                        margin-top:8vw;
-                        display: flex;
-                        align-items: center;
-                        justify-content: center;
-                        ::ng-deep{
-                            .mat-progress-spinner circle, .mat-spinner circle {
-                                stroke: $selectedBackground;
-                            }
-                            
-                        }
-                    }
-                    #content{     
-                        overflow: auto; 
-                        max-height: 24vw;
-                        background-color: rgba($color: $darkerBackground, $alpha: 0.5);
-                        backdrop-filter: blur(2px);
-                        @include mat-elevation(4);
-                        border-radius: 1vw;
-                    }   
-                    #header{
-                        text-align: center;
-                        color: $selectedText;
-                        font-size: 1.75vw;
-                        background-color: rgba($color: $darkerBackground, $alpha: 0.5);
-                        backdrop-filter: blur(2px);
-                        margin: 0.5vw;
-                        border-radius: 1vw;
-                    }
                 }
-                #squad{    
-                    float:left;
-                    width: 30vw;
-                    margin: 1vw;
-                    margin-top: -8vw;
-                    max-height: 30vw;
-                    #loading{
-                        display: flex;
-                        align-items: center;
-                        justify-content: center;
-                        ::ng-deep{
-                            .mat-progress-spinner circle, .mat-spinner circle {
-                                stroke: $selectedBackground;
-                            }
-                            
-                        }
-                    }
-                    #content{
-                        overflow: auto;
-                        max-height: 30vw;
-                        background-color: rgba($color: $darkerBackground, $alpha: 0.5);
-                        backdrop-filter: blur(2px);
-                        @include mat-elevation(4);
-                        padding: 1vw;
-                        border-radius: 1vw;
-                        
-                        #squadContainer{
-                            display: none;
-                        }
-                        #coach #content{
-                            background-color: $evenMoreDarkerBackground;
-                          
-                        }
-                        #player #content{
-                            background-color: $evenDarkerBackground;
-                        }
-
-                    }
-                    #header{
-                        text-align: center;
-                        color: $selectedText;
-                        font-size: 1.75vw;
-                        background-color: rgba($color: $darkerBackground, $alpha: 0.5);
-                        backdrop-filter: blur(2px);
-                        margin: 0.5vw;
-                        border-radius: 1vw;
-                    }
-                }
+            }
+            #content{     
+                overflow: auto; 
+                max-height: 24vw;
+                backdrop-filter: blur(2px);
+                @include mat-elevation(4);
+                border-radius: 1vw;
+                background-color:$darkerBackground;
+            }   
+            #header{
+                background-color:$darkerBackground;
+                text-align: center;
+                color: $selectedText;
+                font-size: 1.75vw;
+                backdrop-filter: blur(2px);
+                margin: 0.5vw;
+                border-radius: 1vw;
             }
         }
-    }   
+        #squad{    
+            float:left;
+            width: 30vw;
+            margin: 1vw;
+            margin-top: -8vw;
+            max-height: 30vw;
+            #loading{
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                ::ng-deep{
+                    .mat-progress-spinner circle, .mat-spinner circle {
+                        stroke: $selectedBackground;
+                    }
+                    
+                }
+            }
+            #content{
+                overflow: auto;
+                max-height: 30vw;
+                background-color:$darkerBackground;
+                backdrop-filter: blur(2px);
+                @include mat-elevation(4);
+                padding: 1vw;
+                border-radius: 1vw;
+                
+                #squadContainer{
+                    display: none;
+                }
+                #coach #content{
+                    background-color: $evenMoreDarkerBackground;
+                  
+                }
+                #player #content{
+                    background-color: $evenDarkerBackground;
+                }
+
+            }
+            #header{
+                text-align: center;
+                background-color:$darkerBackground;
+                color: $selectedText;
+                font-size: 1.75vw;
+                backdrop-filter: blur(2px);
+                margin: 0.5vw;
+                border-radius: 1vw;
+            }
+        }
+    }
+   
     
     ::-webkit-scrollbar{
         display: none;
+        scrollbar-width: none;
     }
 }

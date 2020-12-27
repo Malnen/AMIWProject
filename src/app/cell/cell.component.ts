@@ -35,6 +35,7 @@ export class CellComponent implements OnInit {
       const dialogRef = this.dialog.open(TeamdetailswindowComponent, {
       data: {
         team: this.team,
+        emiter: this.parentLoading
       }
     })
     

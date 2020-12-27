@@ -1,4 +1,5 @@
-import { Component, Input, OnInit } from '@angular/core';
+import { ElementRef, EventEmitter } from '@angular/core';
+import { Component, Input, OnInit, Output } from '@angular/core';
 
 @Component({
   selector: 'app-match-day',
@@ -7,10 +8,14 @@ import { Component, Input, OnInit } from '@angular/core';
 })
 export class MatchDayComponent implements OnInit {
 
+  @Output() parentLoading: EventEmitter<any> = new EventEmitter();
   @Input() matchDay
-  constructor() { }
+  constructor(public elRef: ElementRef,) { }
 
   ngOnInit(): void {
   }
 
+  toggleParentLoading(e){
+    this.parentLoading.emit(e);
+  }
 }

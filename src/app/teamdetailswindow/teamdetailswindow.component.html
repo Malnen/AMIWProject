@@ -1,6 +1,6 @@
 <div id="content">
     <div id="closeButton">
-        <img src="assets/icons/close.png" (click)="closeDialog() ">
+        <img src="assets/icons/close.svg" (click)="closeDialog() ">
     </div>
     <div id="top">
         <img mat-card-sm-image src="{{data.team.crestUrl}} " />
@@ -21,12 +21,14 @@
             <div id="header">
                 Mecze
             </div>
-            <div id = "content">
+            <div id = "content"  [@heightAnimation]="{value:isMatchesLoaded ? 'true' : 'false',params:{height:matchesHeight}}">
                 <div id="loading" #matchesLoading>
                     <mat-spinner> </mat-spinner>
                 </div>
-                <div #matchesContainer>
-                    <app-matchtile *ngFor="let match of matches" [match]="match" id="match"></app-matchtile>
+                <div #matchesContainer >
+                    <app-matchtile  *ngFor="let match of matches let l = last let i = index" id = "test" [match]="match" id="match" #ele  (parentLoading) = "toggleParentLoading($event)">
+                        {{ l === true ? ready() : null}}
+                    </app-matchtile>
                 </div>
             </div>
         </div>
@@ -34,7 +36,7 @@
             <div id="header">
                 Skład
             </div>
-            <div id="content">
+            <div id="content" [@heightAnimation]="{value:isSquadLoaded ? 'true' : 'false',params:{height:squadHeight}}">
                 <div id="loading" #squadLoading>
                     <mat-spinner> </mat-spinner>
                 </div>

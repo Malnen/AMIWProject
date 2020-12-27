@@ -1,0 +1,10 @@
+<div id = "content" *ngIf="referee!=null">
+    <div id = "name">
+        {{referee.name}} <img mat-card-sm-image src="https://flagcdn.com/16x12/{{referee.countryCode.code}}.png" />
+    </div>
+    <div id = "spacer"></div>
+    <div id = "position">
+        Stanowisko: <span>{{referee.role | refereeRole}}</span>
+    </div>
+
+</div>

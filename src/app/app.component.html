@@ -12,11 +12,11 @@
       </mat-form-field>
     </div>
     <div id = "matches">
-      <app-matches-container [matchDays] = "matchDays" [currentMatchDay] = "currentMatchDay" #container></app-matches-container>
+      <app-matches-container [matchDays] = "matchDays" [currentMatchDay] = "currentMatchDay" #container  (parentLoading) = "toggleLoading($event)" ></app-matches-container>
     </div>
   </div>
   <div id = "table">
-    <app-table [table]="table" #tableContainer (parentLoading) = "toggleLoading($event)"></app-table>
+    <app-table [table]="table" #tableContainer  (parentLoading) = "toggleLoading($event)"></app-table>
   </div>
 
   <div id = "loading" #loading>

@@ -1,4 +1,4 @@
-import { Component, OnInit, Input, ViewChild, ElementRef } from '@angular/core';
+import { Component, OnInit, Input, ViewChild, ElementRef, Output, EventEmitter } from '@angular/core';
 import { AppComponent } from '../app.component';
 import {
   trigger,
@@ -8,7 +8,9 @@ import {
   transition,
 } from '@angular/animations';
 import { Animations } from '../animations/animations';
-
+import { MatDialog } from '@angular/material/dialog';
+import { ApiService } from '../api.service';
+import { MatchdetailswindowComponent} from '../matchdetailswindow/matchdetailswindow.component'
 @Component({
   selector: 'app-matchtile',
   templateUrl: './matchtile.component.html',
@@ -23,18 +25,50 @@ export class MatchtileComponent implements OnInit {
   @ViewChild('away') away: ElementRef
   @ViewChild('home') home: ElementRef
   isHover = false;
-  homeURL
-  awayURL
   color:string = "#242424"
 
   homeTeamScore
   awayTeamScore
+  
+  @Output() parentLoading: EventEmitter<any> = new EventEmitter();
+  
+  constructor(public elRef: ElementRef,public dialog: MatDialog,private api:ApiService) { }
 
-  constructor() { }
+  openDialog() {
+    this.parentLoading.emit("show");
+    this.api.getCountries().subscribe((data:any)=>{
+      var countries = data
+
+      this.api.getMatch(this.match.id).subscribe((matchData:any)=>{
+     
+        matchData.match.homeTeam.URL = this.match.homeTeam.URL
+        matchData.match.awayTeam.URL = this.match.awayTeam.URL
+        for (let referee of matchData.match.referees) {
+
+          for(let c of countries.countries){
+            if(Object.values(c) == referee.nationality){
+              referee.countryCode = {code:Object.keys(c)[0]}
+              break;
+            }
+          }
+        }
+        console.log(matchData)
+        this.parentLoading.emit("close");
+        const dialogRef = this.dialog.open(MatchdetailswindowComponent, {
+        data: {
+          match : matchData.match,
+          emiter : this.parentLoading // jakos przekazac dalej ten emiter albo wykoanc metode??
+        }
+      })
+    });
+    })
+    
+}
+
 
   ngOnInit(): void {
-    this.homeURL = AppComponent.imgUrls.find(x => x.id == this.match.homeTeam.id).url
-    this.awayURL = AppComponent.imgUrls.find(x => x.id == this.match.awayTeam.id).url
+    this.match.homeTeam.URL = AppComponent.imgUrls.find(x => x.id == this.match.homeTeam.id).url
+    this.match.awayTeam.URL = AppComponent.imgUrls.find(x => x.id == this.match.awayTeam.id).url
 
   }
 

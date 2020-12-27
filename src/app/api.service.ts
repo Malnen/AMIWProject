@@ -55,6 +55,10 @@ export class ApiService {
     return request
   }
 
+  public getMatch(id:number){
+    var request = this.getData('http://api.football-data.org/v2/matches/' + id)
+    return request
+  }
   public getTeam(id:number){
     var request = this.getData('http://api.football-data.org/v2/teams/' + id)
     return request

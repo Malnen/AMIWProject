@@ -26,6 +26,9 @@ import {MatProgressSpinnerModule} from '@angular/material/progress-spinner';
 import { PlayerTileComponent } from './player-tile/player-tile.component';
 import { PlayerPositionPipe } from './player-position.pipe';
 import { CoachTileComponent } from './coach-tile/coach-tile.component';
+import { MatchdetailswindowComponent } from './matchdetailswindow/matchdetailswindow.component';
+import { RefereeTileComponent } from './referee-tile/referee-tile.component';
+import { RefereeRolePipe } from './referee-role.pipe';
 
 @NgModule({
   declarations: [
@@ -42,6 +45,9 @@ import { CoachTileComponent } from './coach-tile/coach-tile.component';
     PlayerTileComponent,
     PlayerPositionPipe,
     CoachTileComponent,
+    MatchdetailswindowComponent,
+    RefereeTileComponent,
+    RefereeRolePipe,
   ],
   
   imports: [

@@ -107,15 +107,14 @@ export class AppComponent {
   }                                                                            // content jest scrollowany w złe miejsce 
 
   toggleLoading(e) {
-    if (e.event == "show") {
+    if (e == "show") {
       this.loading.nativeElement.setAttribute("style", "display:block;display: flex;align-items: center;justify-content: center;")
-    } else if (e.event == "close") {
+    } else if (e == "close") {
       this.loading.nativeElement.setAttribute("style", "display:none")
     }
   }
 
   public static inCompetitions(id: number) {
-    console.log(AppComponent.competitionIds.includes(id))
     return AppComponent.competitionIds.includes(id)
   }
 }

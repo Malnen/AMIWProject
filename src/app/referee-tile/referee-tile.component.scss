@@ -5,11 +5,13 @@
     color:$text;
     text-align: left;
     @include mat-elevation(4);
-    background-color: $evenDarkerBackground;
-    height: 5.5vw;
+    background-color: $evenMoreDarkerBackground;
+    height: 6vw;
     margin:1vw;
     font-size: 1vw;
     padding:1vw;
+    font-size: 1.5vw;
+    border-radius: 0.75vw;
     #name{
         height: 2vw;
         line-height: 2vw;
@@ -18,12 +20,8 @@
             height: 1vw;
         }
     }
-    #date{
-        font-size: 1vw;
-        span{
-            color:$selectedText;
-            font-size: 1.25vw;
-        }
+    #spacer{
+        height: 2vw;
     }
     #position{
         font-size: 1vw;
@@ -32,7 +30,7 @@
         text-align: right;
         span{
             color:$selectedText;
-            font-size: 1.25vw;
+            font-size: 1.75vw;
         }
     }
 }

@@ -1,0 +1,63 @@
+<div id="content">
+    <div id="closeButton">
+        <img src="assets/icons/close.svg" (click)="closeDialog() ">
+    </div>
+    <div id="top">
+        <div id="header">
+            {{data.match.competition.name}}
+        </div>
+        <div id="content">
+            <div id="home">
+                <img mat-card-sm-image src="{{data.match.homeTeam.URL}}" (click) = "openTeamDetails('home')" />
+                <div id="name">
+                    {{data.match.homeTeam.name}}
+                </div>
+            </div>
+            <div id="middle">
+                {{data.match.score.fullTime.homeTeam}} - {{data.match.score.fullTime.awayTeam}}
+            </div>
+            <div id="away">
+                <img mat-card-sm-image src="{{data.match.awayTeam.URL}}" (click) = "openTeamDetails('away')"/>
+                <div id="name">
+                    {{data.match.awayTeam.name}}
+                </div>
+            </div>
+        </div>
+    </div>
+    <div id="bottom">
+        <div id="left">
+            <div id="header">
+                Informacje
+            </div>
+            <div id="content">
+                <div>
+                    Kolejka: <span>{{data.match.season.currentMatchday}}</span>
+                </div>
+                <div>
+                    Data: <span>{{data.match | matchDate: 'date'}} {{data.match | matchDate: 'time'}}</span>
+                </div>
+                <div>
+                    Status: <span>{{data.match | matchDate: 'extra'}}</span>
+                </div>
+                <div>
+                    Start sezonu: <span>{{data.match.season.startDate | matchDate: 'other'}}</span>
+                </div>
+                <div>
+                    Koniec sezonu: <span>{{data.match.season.endDate | matchDate: 'other'}}</span>
+                </div>
+                <div>
+                    Stadion: <span id="venue">{{data.match.venue}}</span>
+                </div>
+            </div>
+        </div>
+
+        <div id="right">
+            <div id = "header">
+                Sędziowie
+            </div>
+            <div id = "content">
+                <app-referee-tile *ngFor="let referee of data.match.referees" [referee]="referee"></app-referee-tile>
+            </div>
+        </div>
+    </div>
+</div>

@@ -1,5 +1,6 @@
 import { Component, Input, OnInit } from '@angular/core';
 
+
 @Component({
   selector: 'app-player-tile',
   templateUrl: './player-tile.component.html',
@@ -11,6 +12,7 @@ export class PlayerTileComponent implements OnInit {
   constructor() { }
 
   ngOnInit(): void {
+    
   }
 
 }
