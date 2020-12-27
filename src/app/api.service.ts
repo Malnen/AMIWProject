@@ -13,16 +13,9 @@ export class ApiService {
   API_KEYS = [
     '1dd151a7affe4d089f9e33402a7e1b06',   
     'f0d90973cc3a4295af4bcf5ba3bf28bd',
-    '07a6cf5d8e284c39b43556481617d0d7',
-    '7c5b3fcf530e472f9c9cf9f793c6d7ca',
-   /* '1dd151a7affe4d089f9e33402a7e1b06',  
-    'f0d90973cc3a4295af4bcf5ba3bf28bd',   
-    'b7d07d212e9d49ceac21a68eb774394d',  
-    '97988ebd95694ea7a27c698c2bb07b3a',  
-    '0268db7c2dfe4f15941cba03b6a68c4f',   
-    'fbe4254528914691b2b1bbcc0ad721aa',   
-    '010695f0ece54ca59e829ae81f9ae0fe',   
-    '8abad9639e9b4666a3adf8ef1ccde358',*/
+    '77c5cfa5d21f40f6a4c247d2b8313a40',
+    '47ae254272fa41368d3d721ddbc0e650',
+    'fa0370a5103240d0ad8d5743010f22e8',
   ]
 
   constructor(private httpClient: HttpClient) {
@@ -81,8 +74,8 @@ export class ApiService {
       }),
       json: true
     }
-     //console.log(this.apiKeyCounter + " key")
-     //console.log(this.callsCounter+ " calls")
+     console.log(this.apiKeyCounter + " key " + this.API_KEYS[this.apiKeyCounter])
+    console.log(this.callsCounter+ " calls")
     return this.httpClient.get(url, options).pipe(
       catchError(error => {
         return this.getData(url);
